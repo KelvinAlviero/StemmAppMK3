@@ -3,7 +3,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 {/*Functions for groups*/}
 export default function HomeScreen() {
@@ -73,28 +73,21 @@ function handleTeamNameChange(text: string) {
         </ThemedView> 
         
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Group Name Creation</ThemedText>
-      </ThemedView>
+              <ThemedText type="title">Hand fan test</ThemedText>
+            </ThemedView>
+            
+            <ThemedView style={styles.stepContainer}>
+              <ThemedText type="subtitle">Description</ThemedText>
+              <ThemedText>
+                1. Hold the phone infront of a paper fan and click record
+              </ThemedText>     
+              <ThemedText>
+                2. Have anything start blowing on it and wait for 30 seconds
+              </ThemedText> 
+              <ThemedText>
+                3. Results will come out with the average wind speed and a comparison to common wind speeds!
+              </ThemedText>     
       
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Create your group name</ThemedText>
-        <ThemedText>
-          Remember,name that are <ThemedText type="defaultSemiBold">Similar or Contain rude words</ThemedText> will be rejected.
-        </ThemedText>    
-        
-        <ThemedView style={styles.titleContainer}>
-        </ThemedView> 
-        <TextInput
-          style={[styles.input, { backgroundColor: theme.inputBackground, borderColor: theme.inputBorder, color: theme.inputText }, error ? styles.inputError : null]}
-          placeholder="ex. MIBOMBO-"
-          placeholderTextColor={theme.placeholderText}
-          value={teamName}
-          onChangeText={handleTeamNameChange}
-          maxLength={30}
-          autoCapitalize="words"
-          returnKeyType="done"
-          editable={!loading}
-        />
           
           {/*Platform checker*/}
           <ThemedText type="defaultSemiBold">

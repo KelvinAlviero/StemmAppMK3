@@ -3,7 +3,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 {/*Functions for groups*/}
 export default function HomeScreen() {
@@ -66,35 +66,21 @@ function handleTeamNameChange(text: string) {
 
       {/*Group making box, NOT DONE DON'T TRY PLEASE!!*/}
       <ThemedView style={styles.titleContainer}>
-        </ThemedView> 
-        <ThemedView style={styles.titleContainer}>
-        </ThemedView> 
-        <ThemedView style={styles.titleContainer}>
-        </ThemedView> 
-        
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Group Name Creation</ThemedText>
-      </ThemedView>
+              <ThemedText type="title">Reaction test</ThemedText>
+            </ThemedView>
+            
+            <ThemedView style={styles.stepContainer}>
+              <ThemedText type="subtitle">Description</ThemedText>
+              <ThemedText>
+                1. Tap the button to start, the button will light up at a random time
+              </ThemedText>     
+              <ThemedText>
+                2. When the button lights up, tap it as fast as you can
+              </ThemedText>
+              <ThemedText>
+                3. Results will come out with your reaction time in milliseconds and a comparison to average reaction times!
+              </ThemedText>   
       
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Create your group name</ThemedText>
-        <ThemedText>
-          Remember,name that are <ThemedText type="defaultSemiBold">Similar or Contain rude words</ThemedText> will be rejected.
-        </ThemedText>    
-        
-        <ThemedView style={styles.titleContainer}>
-        </ThemedView> 
-        <TextInput
-          style={[styles.input, { backgroundColor: theme.inputBackground, borderColor: theme.inputBorder, color: theme.inputText }, error ? styles.inputError : null]}
-          placeholder="ex. MIBOMBO-"
-          placeholderTextColor={theme.placeholderText}
-          value={teamName}
-          onChangeText={handleTeamNameChange}
-          maxLength={30}
-          autoCapitalize="words"
-          returnKeyType="done"
-          editable={!loading}
-        />
           
           {/*Platform checker*/}
           <ThemedText type="defaultSemiBold">

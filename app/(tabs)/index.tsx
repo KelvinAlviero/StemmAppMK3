@@ -20,7 +20,6 @@ export default function HomeScreen() {
   const tabs = [
     { name: 'Breathing Pace', route: 'BreathingPace' },
     { name: 'E Resistance', route: 'E_Resistance' },
-    { name: 'Explore', route: 'explore' },
     { name: 'Hand Fan', route: 'HandFan' },
     { name: 'Human Pace', route: 'HumanPace' },
     { name: 'Parachute Drop', route: 'ParachuteDrop' },
