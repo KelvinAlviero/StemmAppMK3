@@ -2,31 +2,17 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Image } from 'expo-image';
-import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 {/*Functions for groups*/}
-export default function HomeScreen() {
-  const router = useRouter();
+export default function SoundHunters() {
   const [teamName, setTeamName] = useState('');
   const [memberInput, setMemberInput] = useState('');
   const [members, setMembers] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [memberError, setMemberError] = useState('');
   const [loading, setLoading] = useState(false);
-  
-  // Tab navigation data
-  const tabs = [
-    { name: 'Breathing Pace', route: 'BreathingPace' },
-    { name: 'E Resistance', route: 'E_Resistance' },
-    { name: 'Explore', route: 'explore' },
-    { name: 'Hand Fan', route: 'HandFan' },
-    { name: 'Human Pace', route: 'HumanPace' },
-    { name: 'Parachute Drop', route: 'ParachuteDrop' },
-    { name: 'Reaction Test', route: 'ReactionTest' },
-    { name: 'Sound Hunter', route: 'SoundHunter' },
-  ];
   
   //Theme switcher
   const systemTheme = useColorScheme(); 
@@ -78,32 +64,38 @@ function handleTeamNameChange(text: string) {
       </Text>
     </View>
 
-
-      {/*Tabs Grid*/}
+      {/*Group making box, NOT DONE DON'T TRY PLEASE!!*/}
       <ThemedView style={styles.titleContainer}>
-              </ThemedView> 
-              <ThemedView style={styles.titleContainer}>
-              </ThemedView> 
-              <ThemedView style={styles.titleContainer}>
-              </ThemedView> 
-      {/*Used to space stuff*/}
-      <ThemedView style={styles.gridHeaderContainer}>
-        <ThemedText type="title">Explore Activities</ThemedText>
+        </ThemedView> 
+        <ThemedView style={styles.titleContainer}>
+        </ThemedView> 
+        <ThemedView style={styles.titleContainer}>
+        </ThemedView> 
+        
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title">Sound Hunters</ThemedText>
       </ThemedView>
+      
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Description</ThemedText>
+        <ThemedText>
+          1. Hold the phone near an audio source
+        </ThemedText>     
+        <ThemedText>
+          2. Click record onto the tab below
+        </ThemedText> 
+        <ThemedText>
+          3. Wait for atleast 5 seconds
+        </ThemedText>     
+        <ThemedText>
+          4. Results will come out depicting the decible count and comparable damages!
+        </ThemedText> 
 
-      <ThemedView style={styles.gridContainer}>
-        {tabs.map((tab, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[styles.gridButton, { backgroundColor: isDarkMode ? '#2a2a2a' : '#e8e8e8' }]}
-            onPress={() => router.push(tab.route as any)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.gridButtonText, { color: theme.text }]}>
-              {tab.name}
-            </Text>
-          </TouchableOpacity>
-        ))}
+          
+          {/*Platform checker*/}
+          <ThemedText type="defaultSemiBold">
+            {`(Running on ${getPlatformName()})`}
+        </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -114,6 +106,7 @@ function handleTeamNameChange(text: string) {
 const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     gap: 8,
   },
@@ -141,36 +134,6 @@ const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   header: { position: 'absolute', top: 50, right: 20, flexDirection: 'row', alignItems: 'center' },
   themeButton: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 8, backgroundColor: 'rgba(128, 128, 128, 0.2)' },
-  mainText: { fontSize: 20, fontWeight: 'bold' },
-  gridHeaderContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginTop: 16,
+  mainText: { fontSize: 20, fontWeight: 'bold' }
   },
-  gridContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  gridButton: {
-    width: '22%',
-    aspectRatio: 1,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 8,
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  gridButtonText: {
-    fontSize: 12,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-});
+);
