@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 {/*Functions for groups*/}
-export default function HomeScreen() {
+export default function ReactionTest() {
   const [teamName, setTeamName] = useState('');
   const [memberInput, setMemberInput] = useState('');
   const [members, setMembers] = useState<string[]>([]);

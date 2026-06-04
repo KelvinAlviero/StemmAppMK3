@@ -6,7 +6,7 @@ import { Image } from 'expo-image';
 import { useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme, View } from 'react-native';
 
-export default function HomeScreen() {
+export default function ParachuteDropper() {
   const [teamName, setTeamName] = useState('');
   const [memberInput, setMemberInput] = useState('');
   const [members, setMembers] = useState<string[]>([]);

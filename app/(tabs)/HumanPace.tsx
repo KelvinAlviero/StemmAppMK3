@@ -6,7 +6,7 @@ import { Accelerometer } from 'expo-sensors'; // <-- New import
 import { useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
-export default function HomeScreen() {
+export default function MuscleStabilityChecker() {
   const [teamName, setTeamName] = useState('');
   const [memberInput, setMemberInput] = useState('');
   const [members, setMembers] = useState<string[]>([]);
