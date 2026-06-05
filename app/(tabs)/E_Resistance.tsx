@@ -112,15 +112,15 @@ export default function EarthquakeResistance() {
 
     // Generate Damage Report
     if (calculatedMag < 2.5) {
-      setDamageReport("Microearthquake. Barely felt it. Buildings are fine.");
+      setDamageReport("Teeny Tiny shake");
     } else if (calculatedMag >= 2.5 && calculatedMag < 4.5) {
-      setDamageReport("Minor shake. Rattled some dishes, but structures are safe.");
+      setDamageReport("Minor Earthquake");
     } else if (calculatedMag >= 4.5 && calculatedMag < 6.5) {
-      setDamageReport("Moderate to Strong. Poorly built models might collapse!");
+      setDamageReport("Strong Earthquake");
     } else if (calculatedMag >= 6.5 && calculatedMag < 8.0) {
-      setDamageReport("Major Earthquake! Serious damage to standard structures.");
+      setDamageReport("Super Destructive Earthquake");
     } else {
-      setDamageReport("Cataclysmic! Total destruction. Your building didn't stand a chance. 💥");
+      setDamageReport("World Ending Eartquake");
     }
   };
   // ---------------------------------

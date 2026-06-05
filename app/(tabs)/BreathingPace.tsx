@@ -114,13 +114,13 @@ export default function BreatingPacer() {
 
     // Generate comparison text
     if (finalBpm < 12) {
-      setComparisonText("Lower than average. Are you a monk in deep meditation? 🧘‍♂️");
+      setComparisonText("Lower than average");
     } else if (finalBpm >= 12 && finalBpm <= 20) {
-      setComparisonText("Average resting pace. You are perfectly chill right now.");
+      setComparisonText("Average resting pace");
     } else if (finalBpm > 20 && finalBpm <= 35) {
-      setComparisonText("Elevated pace. Good job on that light exercise!");
+      setComparisonText("Elevated pace");
     } else {
-      setComparisonText("Very high pace! You must have been sprinting. Catch your breath! 🏃‍♂️💨");
+      setComparisonText("Very high pace");
     }
   };
   // ---------------------------------
