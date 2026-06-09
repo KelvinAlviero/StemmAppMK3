@@ -1,6 +1,7 @@
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
@@ -18,13 +19,13 @@ export default function HomeScreen() {
   
   // Tab navigation data
   const tabs = [
-    { name: 'Breathing Pace', route: 'BreathingPace' },
-    { name: 'E Resistance', route: 'E_Resistance' },
-    { name: 'Hand Fan', route: 'HandFan' },
-    { name: 'Human Pace', route: 'HumanPace' },
-    { name: 'Parachute Drop', route: 'ParachuteDrop' },
-    { name: 'Reaction Test', route: 'ReactionTest' },
-    { name: 'Sound Hunter', route: 'SoundHunter' },
+    { name: 'Breathing Pace', route: 'BreathingPace', icon: 'lung' },
+    { name: 'E Resistance', route: 'E_Resistance', icon: 'lightning-bolt' },
+    { name: 'Hand Fan', route: 'HandFan', icon: 'hand-right' },
+    { name: 'Human Pace', route: 'HumanPace', icon: 'run' },
+    { name: 'Parachute Drop', route: 'ParachuteDrop', icon: 'parachute' },
+    { name: 'Reaction Test', route: 'ReactionTest', icon: 'flash' },
+    { name: 'Sound Hunter', route: 'SoundHunter', icon: 'volume-high' },
   ];
   
   //Theme switcher
@@ -98,6 +99,13 @@ function handleTeamNameChange(text: string) {
             onPress={() => router.push(tab.route as any)}
             activeOpacity={0.7}
           >
+            <View style={styles.iconContainer}>
+              <MaterialCommunityIcons 
+                name={tab.icon as any} 
+                size={40} 
+                color={theme.text}
+              />
+            </View>
             <Text style={[styles.gridButtonText, { color: theme.text }]}>
               {tab.name}
             </Text>
@@ -140,7 +148,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   header: { position: 'absolute', top: 50, right: 20, flexDirection: 'row', alignItems: 'center' },
   themeButton: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 8, backgroundColor: 'rgba(128, 128, 128, 0.2)' },
-  mainText: { fontSize: 20, fontWeight: 'bold' },
+  mainText: { fontSize: 15, fontWeight: 'bold' },
   gridHeaderContainer: {
     paddingHorizontal: 16,
     paddingVertical: 12,
@@ -150,26 +158,37 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    gap: 5, // Space between grid items
+    paddingHorizontal: 0, //Grid padding for sides
+    paddingVertical: 10, //Grid padding for top and bottom
+    paddingBottom: 32,
   },
   gridButton: {
-    width: '22%',
-    aspectRatio: 1,
-    borderRadius: 12,
-    justifyContent: 'center',
+    width: '45%',
+    aspectRatio: 0.65,
+    borderRadius: 15,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    padding: 8,
-    elevation: 4,
+    padding: 12,
+    elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
+  iconContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  tabIcon: {
+    marginBottom: 50,
+  },
   gridButtonText: {
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: '600',
     textAlign: 'center',
+    paddingBottom: 4,
   },
 });

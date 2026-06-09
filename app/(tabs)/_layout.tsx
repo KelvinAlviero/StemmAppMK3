@@ -1,35 +1,85 @@
-import { Tabs } from 'expo-router';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Stack, useRouter } from 'expo-router';
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const router = useRouter();
 
   return (
-    <Tabs
+    <Stack
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+        headerShown: true,
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => router.push('index')}
+            style={{ marginRight: 16, padding: 8 }}
+          >
+            <MaterialCommunityIcons
+              name="home"
+              size={24}
+              color={Colors[colorScheme ?? 'light'].tint}
+            />
+          </TouchableOpacity>
+        ),
+        headerTintColor: Colors[colorScheme ?? 'light'].tint,
+        headerStyle: {
+          backgroundColor: colorScheme === 'dark' ? '#121212' : '#FFFFFF',
+        },
       }}>
-      <Tabs.Screen
+      <Stack.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerRight: undefined,
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <Stack.Screen
+        name="BreathingPace"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Breathing Pace',
         }}
       />
-    </Tabs>
+      <Stack.Screen
+        name="E_Resistance"
+        options={{
+          title: 'E Resistance',
+        }}
+      />
+      <Stack.Screen
+        name="HandFan"
+        options={{
+          title: 'Hand Fan',
+        }}
+      />
+      <Stack.Screen
+        name="HumanPace"
+        options={{
+          title: 'Human Pace',
+        }}
+      />
+      <Stack.Screen
+        name="ParachuteDrop"
+        options={{
+          title: 'Parachute Drop',
+        }}
+      />
+      <Stack.Screen
+        name="ReactionTest"
+        options={{
+          title: 'Reaction Test',
+        }}
+      />
+      <Stack.Screen
+        name="SoundHunter"
+        options={{
+          title: 'Sound Hunter',
+        }}
+      />
+    </Stack>
   );
 }

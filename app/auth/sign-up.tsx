@@ -3,13 +3,13 @@ import { useRouter } from 'expo-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 export default function SignUpScreen() {
@@ -39,7 +39,7 @@ export default function SignUpScreen() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       // Navigation will happen automatically when auth state changes
-      router.replace('/(tabs)');
+  
     } catch (error: any) {
       let errorMessage = 'Sign up failed';
       
