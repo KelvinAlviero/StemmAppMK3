@@ -16,7 +16,7 @@ export default function TabLayout() {
         headerShown: true,
         headerRight: () => (
           <TouchableOpacity
-            onPress={() => router.push('index')}
+            onPress={() => router.push('/(tabs)')}
             style={{ marginRight: 16, padding: 8 }}
           >
             <MaterialCommunityIcons
