@@ -5,7 +5,7 @@ import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import 'react-native-reanimated';
 
 import { Colors } from '@/constants/theme';
@@ -76,6 +76,9 @@ export default function RootLayout() {
           size={18}
           color={batteryColor}
         />
+        <Text style={{ color: batteryColor, fontSize: 12, fontWeight: '600' }}>
+          {batteryLevel}%
+        </Text>
       </View>
       <TouchableOpacity
         onPress={() => router.push('/settings')}
