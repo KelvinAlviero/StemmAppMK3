@@ -1,3 +1,4 @@
+import { BannerAdComponent } from '@/components/banner-ad';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -36,7 +37,7 @@ export default function BreatingPacer() {
   const subscription = useRef<any>(null);
    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const breathCount = useRef(0);
-  const smoothedMag = useRef(1.0); // Baseline gravity
+  const smoothedMag = useRef(0.0); // Baseline movement (gravity already subtracted)
   const isChestRising = useRef(false);
 
   // Cleanup on unmount
@@ -60,7 +61,7 @@ export default function BreatingPacer() {
     setComparisonText('');
     
     breathCount.current = 0;
-    smoothedMag.current = 1.0;
+    smoothedMag.current = 0.0;
     isChestRising.current = false;
 
     // Fast updates for smooth wave detection
@@ -68,13 +69,15 @@ export default function BreatingPacer() {
     
     subscription.current = Accelerometer.addListener(({ x, y, z }) => {
       const rawMagnitude = Math.sqrt(x * x + y * y + z * z);
+      // Subtract gravity (1G) to isolate breathing movement
+      const breathingMovement = Math.abs(rawMagnitude - 1);
       
       // Low-Pass Filter: Smooths out sharp jitters to find the slow breathing wave
-      smoothedMag.current = smoothedMag.current + 0.05 * (rawMagnitude - smoothedMag.current);
+      smoothedMag.current = smoothedMag.current + 0.05 * (breathingMovement - smoothedMag.current);
 
       // Peak detection (Thresholds might need tweaking based on testing!)
-      const upperThreshold = 1.015; // Chest rising
-      const lowerThreshold = 0.985; // Chest falling
+      const upperThreshold = 0.05; // Chest rising
+      const lowerThreshold = 0.01; // Chest falling
 
       if (smoothedMag.current > upperThreshold && !isChestRising.current) {
         isChestRising.current = true;
@@ -210,6 +213,9 @@ export default function BreatingPacer() {
           {`(Running on ${getPlatformName()})`}
         </ThemedText>
       </ThemedView>
+      
+      {/* Banner Ad at bottom */}
+      <BannerAdComponent />
     </ParallaxScrollView>
   );
 }

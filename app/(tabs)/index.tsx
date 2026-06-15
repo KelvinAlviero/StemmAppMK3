@@ -2,11 +2,12 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
-
+<AntDesign name="shake" size={24} color="black" />
 {/*Functions for groups*/}
 export default function HomeScreen() {
   const router = useRouter();
@@ -19,9 +20,9 @@ export default function HomeScreen() {
   
   // Tab navigation data
   const tabs = [
-    { name: 'Breathing Pace', route: 'BreathingPace', icon: 'lung' },
-    { name: 'E Resistance', route: 'E_Resistance', icon: 'lightning-bolt' },
-    { name: 'Hand Fan', route: 'HandFan', icon: 'hand-right' },
+    { name: 'Breathing Pace', route: 'BreathingPace', icon: 'lungs' },
+    { name: 'Earthquake Resistance', route: 'E_Resistance', icon: 'vibrate' },
+    { name: 'Hand Fan', route: 'HandFan', icon: 'feather' },
     { name: 'Human Pace', route: 'HumanPace', icon: 'run' },
     { name: 'Parachute Drop', route: 'ParachuteDrop', icon: 'parachute' },
     { name: 'Reaction Test', route: 'ReactionTest', icon: 'flash' },

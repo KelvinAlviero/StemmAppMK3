@@ -1,5 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+
 import * as Battery from 'expo-battery';
 import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -106,7 +107,7 @@ export default function RootLayout() {
       >
         {user ? (
           <>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="home" options={{ headerShown: false }} />
             <Stack.Screen
               name="settings"
               options={{
