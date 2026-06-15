@@ -27,6 +27,8 @@ export default function HomeScreen() {
     { name: 'Parachute Drop', route: 'ParachuteDrop', icon: 'parachute' },
     { name: 'Reaction Test', route: 'ReactionTest', icon: 'flash' },
     { name: 'Sound Hunter', route: 'SoundHunter', icon: 'volume-high' },
+    { name: 'GPS', route: 'GPS', icon: 'crosshairs-gps' },
+    { name: 'Work Manager', route: 'WorkManager', icon: 'clipboard-check-outline' },
   ];
   
   //Theme switcher

@@ -80,6 +80,18 @@ export default function TabLayout() {
           title: 'Sound Hunter',
         }}
       />
+      <Stack.Screen
+        name="GPS"
+        options={{
+          title: 'GPS',
+        }}
+      />
+      <Stack.Screen
+        name="WorkManager"
+        options={{
+          title: 'Work Manager',
+        }}
+      />
     </Stack>
   );
 }
