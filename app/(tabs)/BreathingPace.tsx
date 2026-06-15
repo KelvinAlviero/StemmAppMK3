@@ -1,4 +1,3 @@
-import { BannerAdComponent } from '@/components/banner-ad';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -213,9 +212,6 @@ export default function BreatingPacer() {
           {`(Running on ${getPlatformName()})`}
         </ThemedText>
       </ThemedView>
-      
-      {/* Banner Ad at bottom */}
-      <BannerAdComponent />
     </ParallaxScrollView>
   );
 }
