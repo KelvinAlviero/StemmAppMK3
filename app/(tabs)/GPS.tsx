@@ -29,11 +29,29 @@ export default function GPSScreen() {
           return;
         }
 
-        let currentLocation = await Location.getCurrentPositionAsync({});
-        setLocation(currentLocation);
-        setLoading(false);
+        try {
+          // Try to get current position with specific accuracy and timeout
+          let currentLocation = await Location.getCurrentPositionAsync({
+            accuracy: Location.Accuracy.Balanced,
+            timeInterval: 5000,
+            mayShowUserSettingsDialog: true,
+          });
+          setLocation(currentLocation);
+          setLoading(false);
+        } catch (getCurrentErr) {
+          // Fallback to last known position if getCurrentPosition fails
+          let lastLocation = await Location.getLastKnownPositionAsync({});
+          if (lastLocation) {
+            setLocation(lastLocation);
+            setLoading(false);
+          } else {
+            setError('Unable to retrieve location. Please ensure location services are enabled.');
+            setLoading(false);
+          }
+        }
       } catch (err) {
-        setError('Failed to get location');
+        console.error('Location error:', err);
+        setError('Failed to access location services');
         setLoading(false);
       }
     })();

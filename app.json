@@ -43,7 +43,13 @@
           }
         }
       ],
-      "react-native-google-mobile-ads"
+      "react-native-google-mobile-ads",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermissions": "true"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
